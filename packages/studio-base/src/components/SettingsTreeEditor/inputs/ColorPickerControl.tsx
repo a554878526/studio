@@ -4,6 +4,7 @@
 
 import TagIcon from "@mui/icons-material/Tag";
 import { TextField } from "@mui/material";
+import * as _ from "lodash-es";
 import { useCallback, useState, useMemo } from "react";
 import { HexAlphaColorPicker, HexColorPicker } from "react-colorful";
 import tinycolor from "tinycolor2";
@@ -11,7 +12,6 @@ import { makeStyles } from "tss-react/mui";
 import { useDebouncedCallback } from "use-debounce";
 
 import Stack from "@foxglove/studio-base/components/Stack";
-import * as _ from "lodash-es";
 
 const useStyles = makeStyles()((theme) => ({
   picker: {
