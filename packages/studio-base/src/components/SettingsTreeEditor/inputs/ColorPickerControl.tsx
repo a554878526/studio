@@ -11,6 +11,7 @@ import { makeStyles } from "tss-react/mui";
 import { useDebouncedCallback } from "use-debounce";
 
 import Stack from "@foxglove/studio-base/components/Stack";
+import * as _ from "lodash-es";
 
 const useStyles = makeStyles()((theme) => ({
   picker: {
@@ -174,6 +175,11 @@ export function useColorPickerControl(props: ColorPickerProps) {
   const onInputBlur = useCallback(() => {
     setEditedValue(hex ?? "");
   }, [hex]);
+
+  // Synchronize props and state
+  if (hex !== editedValue && _.isString(hex)) {
+    setEditedValue(hex);
+  }
 
   return {
     alphaType,
